@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - TailorPro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="{{ url_for('static', filename='robot_favicon_20x20-removebg-preview.png') }}">
+  <style>
+    body {
+      background-image: url('https://cdn.prod.website-files.com/600faaecb03ce57f6fa98050/60381d38f4fee4679452154f_Drew-Online-May-101-Interview-Tips-to-Ace-Your-Next-Interview-p-800.jpeg'); /* or use external URL */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      backdrop-filter: blur(2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-2xl">
+    <h1 class="text-2xl font-bold mb-4 text-center text-gray-700">Contact</h1>
+    {% if submitted %}
+      <p class="text-green-600 text-center font-semibold">Thank you for your feedback!</p>
+    {% else %}
+      <form method="POST" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Your Email (optional)</label>
+          <input type="email" name="email" class="mt-1 block w-full border border-gray-300 p-2 rounded-md" placeholder="you@example.com">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Your Message</label>
+          <textarea name="message" rows="5" required class="mt-1 block w-full border border-gray-300 p-2 rounded-md" placeholder="Report a bug, suggest a feature, etc..."></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200">
+          Submit Feedback
+        </button>
+      </form>
+    {% endif %}
+    <div class="text-center mt-6">
+      <a href="/" class="text-sm text-blue-500 hover:underline">← Back to TailorPro</a>
+    </div>
+  </div>
+</body>
+</html>
