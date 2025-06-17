@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os, uuid, smtplib
 from email.mime.text import MIMEText
 
+"""Email Issue in contacts unknown"""
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -70,7 +71,14 @@ def send_email(subject, body):
     msg["Subject"] = subject
     msg["From"] = sender_email
     msg["To"] = receiver_email
-
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, msg.as_string())
+            print("Email sent successfully!")
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+        
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -83,7 +91,6 @@ def contact():
 
         # Send the email
         send_email("Bug Report or Feedback", full_message)
-
         return render_template("thanks.html")  # Create a simple thanks.html if you'd like
     return render_template("contact.html")
 
