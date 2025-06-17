@@ -3,16 +3,6 @@ from docx import Document
 from docx2pdf import convert
 import re
 
-"""Suggestions: 
-- Incorporate reviews on the front page 
-- Bug report section (contact something@gmail.com) ✅
-- Donate, cause why not?! :| ✅
-- If they want a specific request for resume tailoring -> Paid version -> TailorPro? ($5)
-- Play around with the font and color of "ai" letters in "Tailor" in the title to further aesthetic
-- Import navbar from Bootstrap (maybe) ✅
-- MAKE PDF WORK!!!!
-"""
-
 SUMMARY_HEADINGS = [
     "professional summary",
     "summary",
