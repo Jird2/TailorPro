@@ -1,1 +1,1 @@
-# TailorPro
+Welcome! This is the Github repository for my project, TailorPro! This is *technically* my first major project. It essentially uses OPENAI to tailor the users resume to a company/job posting to increase one's chances of getting hired. I plan to continue adding to this in the near future, so feel free to collaborate or send contact me through the "Contact" page located on the navbar!
